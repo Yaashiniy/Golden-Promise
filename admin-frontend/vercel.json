@@ -1,0 +1,20 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://ai-wedding-planner-golden-promise.onrender.com/api/:path*"
+    },
+    {
+      "source": "/sanctum/:path*",
+      "destination": "https://ai-wedding-planner-golden-promise.onrender.com/sanctum/:path*"
+    },
+    {
+      "source": "/storage/:path*",
+      "destination": "https://ai-wedding-planner-golden-promise.onrender.com/storage/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

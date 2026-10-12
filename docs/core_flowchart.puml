@@ -1,0 +1,52 @@
+@startuml
+skinparam Style strictuml
+skinparam ActivityBackgroundColor #F9F9F9
+skinparam ActivityBorderColor #2B2B2B
+skinparam ArrowColor #2B2B2B
+
+start
+:User accesses Golden Promise platform;
+
+if (Select Action) then (Browse Directory)
+  :Filter listings by Location, Category, and Price;
+  :Query PostgreSQL database via Laravel REST API;
+  :Display verified vendor cards and interactive Leaflet map;
+  
+  if (Select Vendor?) then (Yes)
+    :Click "Inquire via WhatsApp";
+    :Generate deep-linked URL with contextual pre-filled message;
+    :Redirect user to external WhatsApp application;
+  else (No)
+    :Continue browsing listings;
+  endif
+
+else (Use AI Wedding Planner)
+  if (Authenticated Session?) then (Yes)
+    :Open "Ask Goldie" AI Planner Interface;
+  else (No)
+    :Prompt user login via Laravel Sanctum cookie auth;
+    :Authenticate user session;
+    :Open "Ask Goldie" AI Planner Interface;
+  endif
+
+  :Input total budget, location, and cultural ceremony type;
+  :Backend retrieves knowledge context via RAG embeddings;
+  :Pass augmented context prompt to Groq API (Llama 3.3 70B);
+  :Stream dynamic budget allocation and custom checklist to React UI;
+  :Save generated plan to user account;
+
+else (Vendor Registration)
+  :Vendor submits business profile and verification documents;
+  :Save listing as "Pending Verification" in database;
+  :Admin reviews submission in management portal;
+  
+  if (Admin Approves?) then (Yes)
+    :Update vendor status to "Verified";
+    :Publish listing to public directory;
+  else (No)
+    :Notify vendor with rejection reasons;
+  endif
+endif
+
+stop
+@enduml
