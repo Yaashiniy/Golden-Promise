@@ -3,7 +3,7 @@
 **An AI-powered wedding planning platform for Malaysian couples.**
 It lists verified vendors and has an AI planner that understands Malaysia's many wedding traditions.
 
-> Final Year Project · Bachelor of Information Technology (Hons) · Asia Metropolitan University
+> Final Year Project · Bachelor of Information Technology (Hons) · Asia Metropolitan University<br>
 > Built by **[Yaashiniy Segaran](https://yaashiniy-portfolio.vercel.app)**
 
 ![Golden Promise](docs/screenshots/cover.jpg)
